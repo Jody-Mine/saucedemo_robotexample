@@ -43,4 +43,29 @@ robot -d results tests/ui/authentication/login-validation.robot
 
 ## Reports
 
-Test reports are generated in the `results` directory after each run.
+Test reports are generated in the `results` directory after each run:
+- `log.html`: Detailed test execution log
+- `report.html`: Test results summary
+- `output.xml`: Machine-readable results data
+
+## Continuous Integration
+
+This project uses GitHub Actions for continuous integration. The workflow:
+1. Triggers on:
+   - Push to main branch
+   - Pull requests to main branch
+   - Manual workflow dispatch
+
+2. Workflow steps:
+   - Sets up Python 3.8
+   - Sets up Node.js 16
+   - Installs project dependencies
+   - Runs Robot Framework tests
+   - Uploads test results as artifacts
+   - Publishes test results to PR/commit
+
+You can view test results:
+1. In the GitHub Actions tab
+2. As artifacts in each workflow run
+3. As annotations in pull requests
+4. In the detailed test report attached to each run
