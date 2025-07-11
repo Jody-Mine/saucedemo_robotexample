@@ -35,11 +35,12 @@ jobs:
         robot --outputdir results tests/ui/
         
     - name: Upload test results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: robot-test-results
         path: results/
+        retention-days: 30
         
     - name: Publish Test Results
       uses: EnricoMi/publish-unit-test-result-action@v2
